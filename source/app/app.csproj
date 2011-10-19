@@ -80,6 +80,7 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="IMakeCalculations.cs" />
     <Compile Include="tasks\IFindDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\IFindDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartments.cs" />
     <Compile Include="web\infrastructure\aspnet\ASPHandler.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />

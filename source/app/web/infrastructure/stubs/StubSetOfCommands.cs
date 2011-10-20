@@ -9,7 +9,7 @@ namespace app.web.infrastructure.stubs
         public IEnumerator<IProcessOneSpecificTypeOfRequest> GetEnumerator()
         {
             yield return new RequestCommand(x => true,
-                                            new ViewTheMainDepartments());
+                                            new ViewTheProductsInADepartment());
         }
 
         IEnumerator IEnumerable.GetEnumerator()

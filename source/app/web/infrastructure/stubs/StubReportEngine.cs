@@ -7,7 +7,6 @@ namespace app.web.infrastructure.stubs
         public void display<ReportModel>(ReportModel item_to_display)
         {
             HttpContext.Current.Items.Add("blah",item_to_display);
-
             HttpContext.Current.Server.Transfer("~/views/productbrowser.aspx");
         }
     }

@@ -24,8 +24,8 @@ namespace app.specs
                 view = fake.an<IHttpHandler>();
                 the_currently_executing_request = ObjectFactory.web.create_http_context();
 
+                depends.on<GetTheCurrentlyExecutingContext>(() => the_currently_executing_request);
                 view_factory = depends.on<ICreateTemplateInstances>();
-                depends.on(the_currently_executing_request);
 
                 view_factory.setup(x => x.create_view_to_display(report_model)).Return(view);
             };

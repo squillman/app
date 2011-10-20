@@ -93,6 +93,8 @@
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
     <Compile Include="web\infrastructure\aspnet\ASPHandler.cs" />
+    <Compile Include="web\infrastructure\aspnet\GetTheCurrentlyExecutingContext.cs" />
+    <Compile Include="web\infrastructure\aspnet\ThereBeDragons.cs" />
     <Compile Include="web\infrastructure\aspnet\WebFormReportEngine.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\FrontController.cs" />

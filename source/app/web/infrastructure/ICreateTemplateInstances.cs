@@ -1,7 +1,9 @@
-﻿namespace app.web.infrastructure
+﻿using System.Web;
+
+namespace app.web.infrastructure
 {
     public interface ICreateTemplateInstances
     {
-        void create_view_to_display<ReportModel>(ReportModel report_model);
+        IHttpHandler create_view_to_display<ReportModel>(ReportModel report_model);
     }
 }

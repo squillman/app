@@ -17,6 +17,7 @@ namespace app.web.infrastructure.stubs
                                    new ViewReport<IEnumerable<DepartmentItem>>(new GetTheDepartmentsInADepartment()));
             yield return
                 new RequestCommand(x => true, new ViewReport<IEnumerable<DepartmentItem>>(new GetTheMainDepartments()));
+
         }
 
         IEnumerator IEnumerable.GetEnumerator()

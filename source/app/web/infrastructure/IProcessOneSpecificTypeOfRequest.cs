@@ -4,4 +4,5 @@
     {
         bool can_handle(IContainRequestDetails request);
     }
+
 }

@@ -1,5 +1,5 @@
 ﻿using System.Web;
-using app.web.infrastructure.stubs;
+using app.infrastructure.containers;
 
 namespace app.web.infrastructure.aspnet
 {
@@ -8,7 +8,7 @@ namespace app.web.infrastructure.aspnet
         IProcessRequests front_controller;
         ICreateRequests request_factory;
 
-        public ASPHandler():this(null,Stub.with<StubRequestFactory>())
+        public ASPHandler() : this(Container.fetch.an<IProcessRequests>(), Container.fetch.an<ICreateRequests>())
         {
         }
 

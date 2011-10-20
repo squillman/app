@@ -119,6 +119,7 @@
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
+    <Compile Include="LogSpecs.cs" />
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="SecuredQuerySpecs.cs" />
     <Compile Include="StubSpecs.cs" />

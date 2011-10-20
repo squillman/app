@@ -19,6 +19,7 @@ namespace app.specs
                 ContainerFacadeResolver resolver = () => the_facade;
                 spec.change(() => Container.facade_resolver).to(resolver);
             };
+
             Because b = () =>
                 result = Container.fetch;
 

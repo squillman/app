@@ -85,6 +85,7 @@
     <Compile Include="models\ViewProductsRequest.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
+    <Compile Include="web\application\catalogbrowsing\CatalogBrowsingController.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />
     <Compile Include="web\application\catalogbrowsing\SecuredQuery.cs" />
     <Compile Include="web\application\catalogbrowsing\UserCriteria.cs" />

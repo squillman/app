@@ -82,7 +82,10 @@
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacade.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
+    <Compile Include="infrastructure\containers\DependencyCreationException.cs" />
+    <Compile Include="infrastructure\containers\ICreateASingleDependency.cs" />
     <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
+    <Compile Include="infrastructure\containers\IFindFactoriesForDependencies.cs" />
     <Compile Include="infrastructure\logging\ICreateLoggers.cs" />
     <Compile Include="infrastructure\logging\ILogInformation.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />

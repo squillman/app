@@ -1,17 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace app.infrastructure.containers 
+﻿namespace app.infrastructure.containers
 {
     public class ContainerFacade : IFetchDependencies
     {
+        IFindFactoriesForDependencies dependency_factories;
+
+        public ContainerFacade(IFindFactoriesForDependencies dependency_factories)
+        {
+            this.dependency_factories = dependency_factories;
+        }
+
         public Dependency an<Dependency>()
         {
-            // create a fully populated new instance
-            return null;
+            var factory = dependency_factories.get_the_factory_that_can_create(typeof(Dependency));
+            return (Dependency) factory.create();
         }
     }
-
 }

@@ -1,5 +1,5 @@
 ﻿using app.web.infrastructure;
-using app.web.infrastructure.stubs;
+using app.web.infrastructure.aspnet;
 
 namespace app.web.application.catalogbrowsing
 {
@@ -14,7 +14,7 @@ namespace app.web.application.catalogbrowsing
             this.report_engine = report_engine;
         }
 
-        public ViewReport(IFetchA<ReportModel> query):this(query,Stub.with<StubReportEngine>())
+        public ViewReport(IFetchA<ReportModel> query):this(query,new WebFormReportEngine())
         {
         }
 

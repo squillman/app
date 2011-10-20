@@ -14,7 +14,7 @@ namespace app.web.infrastructure.aspnet
             this.context_resolver = context_resolver;
         }
 
-        public WebFormReportEngine(ICreateTemplateInstances view_factory):this(view_factory,() => HttpContext.Current)
+        public WebFormReportEngine():this(new ASPXTemplateFactory(),() => HttpContext.Current )
         {
         }
 

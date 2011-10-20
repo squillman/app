@@ -93,14 +93,21 @@
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartments.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheProductsInADepartment.cs" />
     <Compile Include="web\infrastructure\aspnet\ASPHandler.cs" />
+    <Compile Include="web\infrastructure\aspnet\ASPXTemplateFactory.cs" />
+    <Compile Include="web\infrastructure\aspnet\BasicTemplate.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="web\infrastructure\aspnet\GetTheCurrentlyExecutingContext.cs" />
+    <Compile Include="web\infrastructure\aspnet\ICreateTemplateInstances.cs" />
+    <Compile Include="web\infrastructure\aspnet\IFindPathsToTemplates.cs" />
+    <Compile Include="web\infrastructure\aspnet\IRenderA.cs" />
+    <Compile Include="web\infrastructure\aspnet\PageFactory.cs" />
     <Compile Include="web\infrastructure\aspnet\ThereBeDragons.cs" />
     <Compile Include="web\infrastructure\aspnet\WebFormReportEngine.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\FrontController.cs" />
     <Compile Include="web\infrastructure\IContainRequestDetails.cs" />
     <Compile Include="web\infrastructure\ICreateRequests.cs" />
-    <Compile Include="web\infrastructure\ICreateTemplateInstances.cs" />
     <Compile Include="web\infrastructure\IDisplayInformation.cs" />
     <Compile Include="web\infrastructure\IEncapsulateUserFunctionality.cs" />
     <Compile Include="web\infrastructure\IFindCommandsThatCanProcessRequests.cs" />
@@ -109,8 +116,8 @@
     <Compile Include="web\infrastructure\RequestCommand.cs" />
     <Compile Include="web\infrastructure\RequestCriteria.cs" />
     <Compile Include="web\infrastructure\Stub.cs" />
+    <Compile Include="web\infrastructure\stubs\StubAspxPathRegistry.cs" />
     <Compile Include="web\infrastructure\stubs\StubCommand.cs" />
-    <Compile Include="web\infrastructure\stubs\StubReportEngine.cs" />
     <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />
     <Compile Include="web\infrastructure\stubs\StubSetOfCommands.cs" />
   </ItemGroup>

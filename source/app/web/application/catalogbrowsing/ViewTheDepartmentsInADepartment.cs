@@ -2,7 +2,7 @@
 using app.tasks;
 using app.tasks.stubs;
 using app.web.infrastructure;
-using app.web.infrastructure.stubs;
+using app.web.infrastructure.aspnet;
 
 namespace app.web.application.catalogbrowsing
 {
@@ -12,7 +12,7 @@ namespace app.web.application.catalogbrowsing
         IDisplayInformation report_engine;
 
         public ViewTheDepartmentsInADepartment():this(Stub.with<StubStoreDirectory>(),
-            Stub.with<StubReportEngine>())
+            new WebFormReportEngine())
         {
         }
 

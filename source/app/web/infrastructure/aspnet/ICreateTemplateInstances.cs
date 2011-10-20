@@ -1,6 +1,6 @@
-﻿using System.Web;
+using System.Web;
 
-namespace app.web.infrastructure
+namespace app.web.infrastructure.aspnet
 {
     public interface ICreateTemplateInstances
     {

@@ -1,0 +1,17 @@
+﻿using System;
+
+namespace app.infrastructure.containers
+{
+    public class Container
+    {
+        public static ContainerFacadeResolver facade_resolver = () =>
+        {
+            throw new NotImplementedException("This needs to be configured by a startup pipeline");
+        };
+
+        public static IFetchDependencies fetch
+        {
+            get { throw new System.NotImplementedException(); }
+        }
+    }
+}

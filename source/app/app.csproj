@@ -79,13 +79,15 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="IMakeCalculations.cs" />
+    <Compile Include="infrastructure\containers\Container.cs" />
+    <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
+    <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
     <Compile Include="models\ProductItem.cs" />
     <Compile Include="models\DepartmentItem.cs" />
     <Compile Include="models\ViewDepartmentsRequest.cs" />
     <Compile Include="models\ViewProductsRequest.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
-    <Compile Include="web\application\catalogbrowsing\CatalogBrowsingController.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />
     <Compile Include="web\application\catalogbrowsing\SecuredQuery.cs" />
     <Compile Include="web\application\catalogbrowsing\UserCriteria.cs" />

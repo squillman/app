@@ -1,5 +1,4 @@
 ﻿using app.web.infrastructure;
-using app.web.infrastructure.aspnet;
 
 namespace app.web.application.catalogbrowsing
 {
@@ -12,10 +11,6 @@ namespace app.web.application.catalogbrowsing
         {
             this.query = query;
             this.report_engine = report_engine;
-        }
-
-        public ViewReport(IFetchA<ReportModel> query):this(query,new WebFormReportEngine())
-        {
         }
 
         public void process(IContainRequestDetails request)

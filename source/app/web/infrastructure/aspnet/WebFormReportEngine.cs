@@ -1,6 +1,4 @@
-﻿using System.Web;
-
-namespace app.web.infrastructure.aspnet
+﻿namespace app.web.infrastructure.aspnet
 {
     public class WebFormReportEngine : IDisplayInformation
     {
@@ -12,10 +10,6 @@ namespace app.web.infrastructure.aspnet
         {
             this.view_factory = viewFactory;
             this.context_resolver = context_resolver;
-        }
-
-        public WebFormReportEngine():this(new ASPXTemplateFactory(),() => HttpContext.Current )
-        {
         }
 
         public void display<ReportModel>(ReportModel item_to_display)

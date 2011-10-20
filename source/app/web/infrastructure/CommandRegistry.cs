@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using app.web.infrastructure.stubs;
 
 namespace app.web.infrastructure
 {
@@ -9,11 +8,8 @@ namespace app.web.infrastructure
         IEnumerable<IProcessOneSpecificTypeOfRequest> all_the_commands;
         IProcessOneSpecificTypeOfRequest command_to_use_when_a_command_cant_be_found;
 
-        public CommandRegistry():this(Stub.with<StubSetOfCommands>(),Stub.with<StubCommand>())
-        {
-        }
-
-        public CommandRegistry(IEnumerable<IProcessOneSpecificTypeOfRequest> all_the_commands, IProcessOneSpecificTypeOfRequest command_to_use_when_a_command_cant_be_found)
+        public CommandRegistry(IEnumerable<IProcessOneSpecificTypeOfRequest> all_the_commands,
+                               IProcessOneSpecificTypeOfRequest command_to_use_when_a_command_cant_be_found)
         {
             this.all_the_commands = all_the_commands;
             this.command_to_use_when_a_command_cant_be_found = command_to_use_when_a_command_cant_be_found;
@@ -21,7 +17,8 @@ namespace app.web.infrastructure
 
         public IProcessOneSpecificTypeOfRequest get_the_command_that_can_process(IContainRequestDetails request)
         {
-            return all_the_commands.FirstOrDefault(x => x.can_handle(request)) ?? command_to_use_when_a_command_cant_be_found;
+            return all_the_commands.FirstOrDefault(x => x.can_handle(request)) ??
+                command_to_use_when_a_command_cant_be_found;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace app.web.infrastructure.aspnet
         IProcessRequests front_controller;
         ICreateRequests request_factory;
 
-        public ASPHandler():this(new FrontController(),Stub.with<StubRequestFactory>())
+        public ASPHandler():this(null,Stub.with<StubRequestFactory>())
         {
         }
 

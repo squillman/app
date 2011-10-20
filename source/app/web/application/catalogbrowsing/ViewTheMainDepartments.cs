@@ -7,7 +7,7 @@ namespace app.web.application.catalogbrowsing
 {
     public class ViewTheMainDepartments : IEncapsulateUserFunctionality
     {
-        IProvideInformationAboutTheStore department_repository;
+        IProvideInformationAboutTheStore store_directory;
         IDisplayInformation report_engine;
 
         public ViewTheMainDepartments():this(Stub.with<StubStoreDirectory>(),
@@ -15,15 +15,15 @@ namespace app.web.application.catalogbrowsing
         {
         }
 
-        public ViewTheMainDepartments(IProvideInformationAboutTheStore department_repository, IDisplayInformation report_engine)
+        public ViewTheMainDepartments(IProvideInformationAboutTheStore store_directory, IDisplayInformation report_engine)
         {
-            this.department_repository = department_repository;
+            this.store_directory = store_directory;
             this.report_engine = report_engine;
         }
 
         public void process(IContainRequestDetails request)
         {
-            report_engine.display(department_repository.get_the_main_departments());
+            report_engine.display(store_directory.get_the_main_departments());
         }
     }
 }

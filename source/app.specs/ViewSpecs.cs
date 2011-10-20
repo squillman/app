@@ -21,29 +21,28 @@ namespace app.specs
             Establish c = () =>
             {
                 request = fake.an<IContainRequestDetails>();
+                the_view_model = fake.an<IDisplayCatalogItems>();
                 department_repository = depends.on<IProvideInformationAboutTheStore>();
-                the_departments_in_the_department = new List<DepartmentItem> {new DepartmentItem()};
+                view_directory = depends.on<IProvideViewModels>();
                 report_engine = depends.on<IDisplayInformation>();
-                department_details = new ViewDepartmentsRequest();
 
-                request.setup(x => x.map<ViewDepartmentsRequest>()).Return(department_details);
+                request.setup(x => x.map<IProvideViewModels>()).Return();
 
-                department_repository.setup(x => x.get_all_the_departments_in(department_details)).Return(
-                    the_departments_in_the_department);
             };
 
             Because b = () =>
                 sut.process(request);
 
-            It should_tell_the_report_engine_to_display_the_departments_within_a_department = () =>
-                report_engine.received(x => x.display(the_departments_in_the_department));
+            It should_tell_the_report_engine_to_get_a_view_model_from_the_view_directory_and_display_its_details = () =>
+                report_engine.received(x => x.display(the_view_model));
 
             static IDisplayInformation report_engine;
             static IContainRequestDetails request;
             static IProvideInformationAboutTheStore department_repository;
             static DepartmentItem parent_department;
-            static IEnumerable<DepartmentItem> the_departments_in_the_department;
             static ViewDepartmentsRequest department_details;
+            static IDisplayCatalogItems the_view_model;
+            static IProvideViewModels view_directory;
         }
     }
 }

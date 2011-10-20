@@ -83,7 +83,9 @@
     <Compile Include="models\DepartmentItem.cs" />
     <Compile Include="models\ViewDepartmentsRequest.cs" />
     <Compile Include="models\ViewProductsRequest.cs" />
+    <Compile Include="tasks\IDisplayCatalogItems.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
+    <Compile Include="tasks\IProvideViewModels.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsInADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartments.cs" />

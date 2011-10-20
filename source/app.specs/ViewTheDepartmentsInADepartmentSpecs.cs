@@ -22,14 +22,15 @@ namespace app.specs
             Establish c = () =>
             {
                 request = fake.an<IContainRequestDetails>();
-                department_repository = depends.on<IFindDepartments>();
+                department_repository = depends.on<IProvideInformationAboutTheStore>();
                 the_departments_in_the_department = new List<DepartmentItem> {new DepartmentItem()};
                 report_engine = depends.on<IDisplayInformation>();
-                parent_department = new DepartmentItem();
+                department_details = new ViewDepartmentsRequest();
 
-                request.setup(x => x.map<DepartmentItem>()).Return(parent_department);
+                request.setup(x => x.map<ViewDepartmentsRequest>()).Return(department_details);
 
-                department_repository.setup( x => x.get_all_the_departments_in(parent_department)).Return(the_departments_in_the_department);
+                department_repository.setup(x => x.get_all_the_departments_in(department_details)).Return(
+                    the_departments_in_the_department);
             };
 
             Because b = () =>
@@ -40,9 +41,10 @@ namespace app.specs
 
             static IDisplayInformation report_engine;
             static IContainRequestDetails request;
-            static IFindDepartments department_repository;
+            static IProvideInformationAboutTheStore department_repository;
             static DepartmentItem parent_department;
             static IEnumerable<DepartmentItem> the_departments_in_the_department;
+            static ViewDepartmentsRequest department_details;
         }
     }
 }

@@ -8,23 +8,23 @@ namespace app.web.application.catalogbrowsing
 {
     public class ViewTheProductsInADepartment:IEncapsulateUserFunctionality
     {
-        IFindProducts product_repository;
+        IProvideInformationAboutTheStore store_directory;
         IDisplayInformation report_engine;
 
-        public ViewTheProductsInADepartment():this(Stub.with<StubProductRepository>(),
+        public ViewTheProductsInADepartment():this(Stub.with<StubStoreDirectory>(),
         Stub.with<StubReportEngine>())
         {
         }
 
-        public ViewTheProductsInADepartment(IFindProducts product_repository, IDisplayInformation report_engine)
+        public ViewTheProductsInADepartment(IProvideInformationAboutTheStore store_directory, IDisplayInformation report_engine)
         {
-            this.product_repository = product_repository;
+            this.store_directory = store_directory;
             this.report_engine = report_engine;
         }
 
         public void process(IContainRequestDetails request)
         {
-            report_engine.display(product_repository.get_all_the_products(request.map<ProductItem>()));
+            report_engine.display(store_directory.get_all_the_products_in(request.map<ViewProductsRequest>()));
         }
     }
 }

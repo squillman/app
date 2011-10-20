@@ -14,8 +14,16 @@ namespace app.web.infrastructure.stubs
         {
             public InputModel map<InputModel>()
             {
-                object department = new DepartmentItem();
-                return (InputModel) department;
+                object result = new object();
+                if (typeof(InputModel).Equals(typeof(ViewDepartmentsRequest)))
+                {
+                    result = new ViewDepartmentsRequest();
+                }
+                else
+                {
+                    result = new ViewProductsRequest();
+                }
+                return (InputModel) result;
             }
         }
     }

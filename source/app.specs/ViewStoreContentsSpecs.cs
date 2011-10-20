@@ -9,7 +9,7 @@ using developwithpassion.specifications.rhinomocks;
 
 namespace app.specs
 {
-    public class ViewSpecs
+    public class ViewStoreContentsSpecs
     {
         public abstract class concern : Observes<IEncapsulateUserFunctionality,
                                             ViewTheDepartmentsInADepartment>

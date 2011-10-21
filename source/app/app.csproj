@@ -79,6 +79,8 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="IMakeCalculations.cs" />
+    <Compile Include="infrastructure\ChainedCommand.cs" />
+    <Compile Include="infrastructure\CommandExtensions.cs" />
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacade.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
@@ -97,6 +99,8 @@
     <Compile Include="infrastructure\containers\simple\SimpleDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\DependencyFactoriesFactory.cs" />
     <Compile Include="infrastructure\containers\simple\stubs\StubMissingDependencyFactory.cs" />
+    <Compile Include="infrastructure\EnumerableExtensions.cs" />
+    <Compile Include="infrastructure\IEncapsulateABehaviour.cs" />
     <Compile Include="infrastructure\logging\ICreateLoggers.cs" />
     <Compile Include="infrastructure\logging\ILogInformation.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
@@ -106,14 +110,17 @@
     <Compile Include="models\ViewProductsRequest.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
     <Compile Include="tasks\startup\ContainerRegistrationFacility.cs" />
+    <Compile Include="tasks\startup\IComposeStartupChains.cs" />
     <Compile Include="tasks\startup\pipeline\ConfiguringTheApplicationCommands.cs" />
     <Compile Include="tasks\startup\pipeline\ConfiguringTheContainer.cs" />
     <Compile Include="tasks\startup\pipeline\ConfiguringTheFrontController.cs" />
     <Compile Include="tasks\startup\pipeline\ConfiguringTheServiceLayer.cs" />
+    <Compile Include="tasks\startup\pipeline\ICreateStartupPipelineCommands.cs" />
     <Compile Include="tasks\startup\pipeline\IPlayAPartInApplicationStartUp.cs" />
     <Compile Include="tasks\startup\SingletonCreator.cs" />
     <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\StartTheApplication.cs" />
+    <Compile Include="tasks\startup\StartupPipelineBuilder.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />
     <Compile Include="web\application\catalogbrowsing\SecuredQuery.cs" />

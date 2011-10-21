@@ -117,11 +117,14 @@
     <Compile Include="ASPXTemplateFactorySpecs.cs" />
     <Compile Include="AutomaticallyWiringDependencyFactorySpecs.cs" />
     <Compile Include="CalculatorSpecs.cs" />
+    <Compile Include="ChainedCommandSpecs.cs" />
+    <Compile Include="CommandExtensionsSpecs.cs" />
     <Compile Include="CommandRegistrySpecs.cs" />
     <Compile Include="ContainerRegistrationFacilitySpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="ContainerFacadeSpecs.cs" />
     <Compile Include="DependencyFactoriesSpecs.cs" />
+    <Compile Include="EnumerableExtensionsSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />
     <Compile Include="GreediestContructorPickerSpecs.cs" />
     <Compile Include="LazyContainerSpecs.cs" />
@@ -132,6 +135,7 @@
     <Compile Include="DependencyFactoriesFactorySpecs.cs" />
     <Compile Include="StartSpecs.cs" />
     <Compile Include="StartTheApplicationSpecs.cs" />
+    <Compile Include="StartupPipelineBuilderSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="ViewReportSpecs.cs" />

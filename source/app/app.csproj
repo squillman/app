@@ -82,6 +82,8 @@
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacade.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
+    <Compile Include="infrastructure\containers\IChooseTheConstructorForAType.cs" />
+    <Compile Include="infrastructure\containers\simple\AutomaticallyWiringDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\CreateTheMissingDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\DependencyCreationException.cs" />
     <Compile Include="infrastructure\containers\simple\DependencyFactories.cs" />

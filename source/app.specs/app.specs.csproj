@@ -128,6 +128,7 @@
     <Compile Include="RequestCommandSpecs.cs" />
     <Compile Include="SecuredQuerySpecs.cs" />
     <Compile Include="SimpleDependencyFactorySpecs.cs" />
+    <Compile Include="SingleDependencyFactory.cs" />
     <Compile Include="StartTheApplicationSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />

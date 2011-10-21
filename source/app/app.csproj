@@ -90,7 +90,9 @@
     <Compile Include="infrastructure\containers\simple\DependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\ICreateASingleDependency.cs" />
     <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
+    <Compile Include="infrastructure\containers\simple\ICreateDependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\IFindFactoriesForDependencies.cs" />
+    <Compile Include="infrastructure\containers\simple\IRegisterComponentsIntoTheContainer.cs" />
     <Compile Include="infrastructure\containers\simple\SimpleDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\stubs\StubMissingDependencyFactory.cs" />
     <Compile Include="infrastructure\logging\ICreateLoggers.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="models\ViewDepartmentsRequest.cs" />
     <Compile Include="models\ViewProductsRequest.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
+    <Compile Include="tasks\startup\ContainerRegistrationFacility.cs" />
     <Compile Include="tasks\startup\StartTheApplication.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />

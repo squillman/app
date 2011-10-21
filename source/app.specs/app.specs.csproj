@@ -118,6 +118,7 @@
     <Compile Include="AutomaticallyWiringDependencyFactorySpecs.cs" />
     <Compile Include="CalculatorSpecs.cs" />
     <Compile Include="CommandRegistrySpecs.cs" />
+    <Compile Include="ContainerRegistrationFacilitySpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="ContainerFacadeSpecs.cs" />
     <Compile Include="DependencyFactoriesSpecs.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Linq;
 
 namespace app.infrastructure.containers
 {
@@ -7,14 +8,7 @@ namespace app.infrastructure.containers
     {
         public ConstructorInfo get_the_applicable_constructor_on(Type type)
         {
-            ConstructorInfo[] constructors = type.GetConstructors();
-            ConstructorInfo greediest_constructor = constructors[0];
-            foreach (var constructor in constructors)
-            {
-                if (constructor.GetParameters().GetUpperBound(0) > greediest_constructor.GetParameters().GetUpperBound(0))
-                    greediest_constructor = constructor;
-            }
-            return greediest_constructor;
+            return type.GetConstructors().OrderByDescending(x => x.GetParameters().Count()).First();
         }
     }
 }

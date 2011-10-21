@@ -117,6 +117,7 @@
     <Compile Include="tasks\startup\pipeline\ConfiguringTheServiceLayer.cs" />
     <Compile Include="tasks\startup\pipeline\ICreateStartupPipelineCommands.cs" />
     <Compile Include="tasks\startup\pipeline\IPlayAPartInApplicationStartUp.cs" />
+    <Compile Include="tasks\startup\pipeline\StartupPipelineCommandFactory.cs" />
     <Compile Include="tasks\startup\SingletonCreator.cs" />
     <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\StartTheApplication.cs" />

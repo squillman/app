@@ -136,6 +136,7 @@
     <Compile Include="StartSpecs.cs" />
     <Compile Include="StartTheApplicationSpecs.cs" />
     <Compile Include="StartupPipelineBuilderSpecs.cs" />
+    <Compile Include="StartupPipelineCommandFactorySpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="ViewReportSpecs.cs" />

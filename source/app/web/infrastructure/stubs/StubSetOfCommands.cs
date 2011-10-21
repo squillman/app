@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using app.infrastructure.containers;
 using app.models;
 using app.tasks.stubs;
 using app.web.application.catalogbrowsing;
@@ -10,7 +11,7 @@ namespace app.web.infrastructure.stubs
     {
         public IEnumerator<IProcessOneSpecificTypeOfRequest> GetEnumerator()
         {
-            yield break;
+            yield return new RequestCommand(x => true, Container.fetch.an<ViewTheMainDepartments>());
         }
 
         IEnumerator IEnumerable.GetEnumerator()

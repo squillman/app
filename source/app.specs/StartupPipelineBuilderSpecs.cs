@@ -42,7 +42,6 @@ namespace app.specs
                 item.command_factory.ShouldEqual(command_factory);
             };
 
-            static IList<IPlayAPartInApplicationStartUp> all_commands;
             static IPlayAPartInApplicationStartUp the_command;
             static ICreateStartupPipelineCommands command_factory;
             static IComposeStartupChains result;
@@ -56,7 +55,7 @@ namespace app.specs
                 order_ran = new List<Type>();
                 first_command = new FirstCommand {commands = order_ran};
                 final_command = new NextCommand {commands = order_ran};
-                depends.on(first_command);
+                depends.on<IEncapsulateABehaviour>(first_command);
 
                 command_factory = depends.on<ICreateStartupPipelineCommands>();
 

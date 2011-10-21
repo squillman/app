@@ -123,6 +123,7 @@
     <Compile Include="ContainerRegistrationFacilitySpecs.cs" />
     <Compile Include="ContainerSpecs.cs" />
     <Compile Include="ContainerFacadeSpecs.cs" />
+    <Compile Include="DelegateExtensionsSpecs.cs" />
     <Compile Include="DependencyFactoriesSpecs.cs" />
     <Compile Include="EnumerableExtensionsSpecs.cs" />
     <Compile Include="FrontControllerSpecs.cs" />

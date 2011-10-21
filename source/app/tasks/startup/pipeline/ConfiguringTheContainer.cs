@@ -16,7 +16,7 @@ namespace app.tasks.startup.pipeline
 
         public void run()
         {
-            registration = Factories.create_registration_facility();
+            registration = Factories.registration_factory();
 
             var container_facade = new ContainerFacade(new DependencyFactories(registration, Stub.with<StubMissingDependencyFactory>().create));
             ContainerFacadeResolver resolver = () => container_facade;

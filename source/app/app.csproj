@@ -99,6 +99,7 @@
     <Compile Include="infrastructure\containers\simple\SimpleDependencyFactory.cs" />
     <Compile Include="infrastructure\containers\simple\DependencyFactoriesFactory.cs" />
     <Compile Include="infrastructure\containers\simple\stubs\StubMissingDependencyFactory.cs" />
+    <Compile Include="infrastructure\DelegateExtensions.cs" />
     <Compile Include="infrastructure\EnumerableExtensions.cs" />
     <Compile Include="infrastructure\IEncapsulateABehaviour.cs" />
     <Compile Include="infrastructure\logging\ICreateLoggers.cs" />

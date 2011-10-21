@@ -28,8 +28,9 @@ namespace app.specs
                 depends.on(typeof(OurTypeWithDependencies));
                 constructor_picker = depends.on<IChooseTheConstructorForAType>();
 
-                constructor_picker.setup(x => x.get_the_applicable_constructor_on(typeof(OurTypeWithDependencies))).
-                    Return(ObjectFactory.expressions.to_target<OurTypeWithDependencies>().get_constructor(() => new OurTypeWithDependencies(null,null,null)));
+                var constructor = ObjectFactory.expressions.to_target<OurTypeWithDependencies>().get_constructor(() => new OurTypeWithDependencies(null,null,null));
+
+                constructor_picker.setup(x => x.get_the_applicable_constructor_on(typeof(OurTypeWithDependencies))). Return(constructor);
 
                 container.setup(x => x.an(typeof(IDbConnection))).Return(the_connection);
                 container.setup(x => x.an(typeof(IDbCommand))).Return(the_command);

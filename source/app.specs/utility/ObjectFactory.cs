@@ -32,7 +32,7 @@ namespace app.specs.utility
         {
             public static ExpressionBuilder<T> to_target<T>()
             {
-                throw new NotImplementedException();
+                return new ExpressionBuilder<T>();
             }
         }
 

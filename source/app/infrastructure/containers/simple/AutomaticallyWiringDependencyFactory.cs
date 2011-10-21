@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Linq;
 
 namespace app.infrastructure.containers.simple
 {
     public class AutomaticallyWiringDependencyFactory : ICreateASingleDependency
     {
-        private IFetchDependencies container;
-        private Type dependency_type;
-        private IChooseTheConstructorForAType constructor_picker;
+        IFetchDependencies container;
+        Type dependency_type;
+        IChooseTheConstructorForAType constructor_picker;
 
-        public AutomaticallyWiringDependencyFactory(IFetchDependencies container, Type dependencyType, IChooseTheConstructorForAType constructorPicker)
+        public AutomaticallyWiringDependencyFactory(IFetchDependencies container, Type dependencyType, IChooseTheConstructorForAType constructor_picker)
         {
             this.container = container;
             dependency_type = dependencyType;
-            constructor_picker = constructorPicker;
+            this.constructor_picker = constructor_picker;
         }
 
         public object create()
         {
-            return constructor_picker.get_the_applicable_constructor_on(dependency_type);
+            var ctor = constructor_picker.get_the_applicable_constructor_on(dependency_type);
+            var parameters = ctor.GetParameters().Select(x => container.an(x.ParameterType));
+            return ctor.Invoke(parameters.ToArray());
         }
     }
 }

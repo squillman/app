@@ -4,7 +4,7 @@ namespace app.infrastructure
 {
     public static class DelegateExtensions
     {
-        public static Func<ItemToCache> memoize<ItemToCache>(this Func<ItemToCache> original)
+        public static Func<ResultToCache> memoize<ResultToCache>(this Func<ResultToCache> original)
         {
             return original;
         }

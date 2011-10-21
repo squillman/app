@@ -14,7 +14,14 @@ namespace app.tasks.startup.pipeline
 
         public IPlayAPartInApplicationStartUp create_command_of(Type command_type)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return (IPlayAPartInApplicationStartUp) Activator.CreateInstance(command_type, registration_facility);
+            }
+            catch (Exception e)
+            {
+                throw new StartupCommandPolicyViolationException(command_type, e);
+            }
         }
     }
 }

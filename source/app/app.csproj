@@ -121,6 +121,7 @@
     <Compile Include="tasks\startup\SingletonCreator.cs" />
     <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\StartTheApplication.cs" />
+    <Compile Include="tasks\startup\StartupCommandPolicyViolationException.cs" />
     <Compile Include="tasks\startup\StartupPipelineBuilder.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />

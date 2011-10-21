@@ -16,12 +16,9 @@ namespace app.tasks.startup.pipeline
 
         public void run()
         {
-            var lazy_container = new LazyContainer();
+            registration = Factories.create_registration_facility();
 
-            registration = new ContainerRegistrationFacility(new DependencyFactoriesFactory(lazy_container, new GreediestContructorPicker()));
             var container_facade = new ContainerFacade(new DependencyFactories(registration, Stub.with<StubMissingDependencyFactory>().create));
-            lazy_container.container = container_facade;
-
             ContainerFacadeResolver resolver = () => container_facade;
             Container.facade_resolver = resolver;
         } 

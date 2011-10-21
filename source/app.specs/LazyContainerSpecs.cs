@@ -23,18 +23,17 @@ namespace app.specs
             {
                 the_connection = fake.an<IDbConnection>();
                 container = fake.an<IFetchDependencies>();
+                ContainerFacadeResolver resolver = () => container;
 
                 container.setup(x => x.an<IDbConnection>()).Return(the_connection);
-                
+
+                spec.change(() => Container.facade_resolver).to(resolver);
             };
 
             Because b = () =>
-            {
-                concrete_sut.container = container;
                 result = sut.an<IDbConnection>();
-            };
 
-            It should_delegate_fetching_to_its_lazily_initialized_container = () =>
+            It should_delegate_its_fetching_to_the_container_static_gateway = () =>
                 result.ShouldEqual(the_connection);
 
             static IFetchDependencies container;

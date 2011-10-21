@@ -70,6 +70,7 @@
     <None Include="rakefile.rb" />
     <None Include="run_first" />
     <None Include="save_my_changes" />
+    <None Include="source\config\startup_order.txt.erb" />
     <None Include="source\config\web.config.erb" />
     <None Include="start_new_exercise" />
   </ItemGroup>

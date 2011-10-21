@@ -7,7 +7,14 @@ namespace app.infrastructure.containers
     {
         public ConstructorInfo get_the_applicable_constructor_on(Type type)
         {
-            throw new NotImplementedException();
+            ConstructorInfo[] constructors = type.GetConstructors();
+            ConstructorInfo greediest_constructor = constructors[0];
+            foreach (var constructor in constructors)
+            {
+                if (constructor.GetParameters().GetUpperBound(0) > greediest_constructor.GetParameters().GetUpperBound(0))
+                    greediest_constructor = constructor;
+            }
+            return greediest_constructor;
         }
     }
 }

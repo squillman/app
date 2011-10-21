@@ -20,69 +20,52 @@ namespace app.tasks.startup
 
         public static void run()
         {
+            configure_the_container();
+            configure_the_front_controller_components();
+            configure_service_layer_components();
+            configure_the_user_commands();
+        }
+
+        static void configure_the_user_commands()
+        {
+            add_factory<ViewTheMainDepartments>(() => new ViewTheMainDepartments(Container.fetch.an<IProvideInformationAboutTheStore>(),Container.fetch.an<IDisplayInformation>()));
+            add_factory<ViewTheDepartmentsInADepartment>(() => new ViewTheDepartmentsInADepartment(Container.fetch.an<IProvideInformationAboutTheStore>(),Container.fetch.an<IDisplayInformation>()));
+            add_factory<ViewTheProductsInADepartment>(() => new ViewTheProductsInADepartment(Container.fetch.an<IProvideInformationAboutTheStore>(),Container.fetch.an<IDisplayInformation>()));
+        }
+
+        static void configure_service_layer_components()
+        {
+            add_instance<IProvideInformationAboutTheStore>(Stub.with<StubStoreDirectory>());
+        }
+
+        static void configure_the_container()
+        {
             IFetchDependencies container_facade =
                 new ContainerFacade(new DependencyFactories(all_the_factories,
                                                             Stub.with<StubMissingDependencyFactory>().create));
             ContainerFacadeResolver resolver = () => container_facade;
             Container.facade_resolver = resolver;
-
-            populate_dependency_factories();
         }
 
-        static void populate_dependency_factories()
+        static void configure_the_front_controller_components()
         {
-            all_the_factories.Add(typeof(IProvideInformationAboutTheStore),new SimpleDependencyFactory(() => Stub.with<StubStoreDirectory>()));
-            all_the_factories.Add(typeof(ICreateRequests),
-                                  new SimpleDependencyFactory(() => Stub.with<StubRequestFactory>()));
-            all_the_factories.Add(typeof(IProcessRequests),
-                                  new SimpleDependencyFactory(
-                                      () =>
-                                          new FrontController(Container.fetch.an<IFindCommandsThatCanProcessRequests>())));
-            all_the_factories.Add(typeof(IEnumerable<IProcessOneSpecificTypeOfRequest>),
-                                  new SimpleDependencyFactory(() => Stub.with<StubSetOfCommands>()));
-            all_the_factories.Add(typeof(IDisplayInformation),
-                                  new SimpleDependencyFactory(
-                                      () => new WebFormReportEngine(Container.fetch.an<ICreateTemplateInstances>(),
-                                                                    Container.fetch.an<GetTheCurrentlyExecutingContext>())));
-            all_the_factories.Add(typeof(IFindCommandsThatCanProcessRequests),
-                                  new SimpleDependencyFactory(
-                                      () =>
-                                          new CommandRegistry(
-                                          Container.fetch.an<IEnumerable<IProcessOneSpecificTypeOfRequest>>(),
-                                          Stub.with<StubMissingCommand>())));
-            all_the_factories.Add(typeof(ICreateTemplateInstances),
-                                  new SimpleDependencyFactory(
-                                      () => new ASPXTemplateFactory(Container.fetch.an<IFindPathsToTemplates>(),
-                                                                    Container.fetch.an<PageFactory>())));
-
-            all_the_factories.Add(typeof(IFindPathsToTemplates),
-                                  new SimpleDependencyFactory(() => Stub.with<StubAspxPathRegistry>()));
-            all_the_factories.Add(typeof(ViewTheMainDepartments),
-                                  new SimpleDependencyFactory(
-                                      () =>
-                                          new ViewTheMainDepartments(
-                                          Container.fetch.an<IProvideInformationAboutTheStore>(),
-                                          Container.fetch.an<IDisplayInformation>())));
-
-            all_the_factories.Add(typeof(ViewTheDepartmentsInADepartment),
-                                  new SimpleDependencyFactory(
-                                      () =>
-                                          new ViewTheDepartmentsInADepartment(
-                                          Container.fetch.an<IProvideInformationAboutTheStore>(),
-                                          Container.fetch.an<IDisplayInformation>())));
-
-            all_the_factories.Add(typeof(ViewTheProductsInADepartment),
-                                  new SimpleDependencyFactory(
-                                      () =>
-                                          new ViewTheProductsInADepartment(
-                                          Container.fetch.an<IProvideInformationAboutTheStore>(),
-                                          Container.fetch.an<IDisplayInformation>())));
-            PageFactory factory = BuildManager.CreateInstanceFromVirtualPath;
-            GetTheCurrentlyExecutingContext current_context = () => HttpContext.Current;
-
-            all_the_factories.Add(typeof(PageFactory), new SimpleDependencyFactory(() => factory));
-            all_the_factories.Add(typeof(GetTheCurrentlyExecutingContext),
-                                  new SimpleDependencyFactory(() => current_context));
+            add_instance<ICreateRequests>(Stub.with<StubRequestFactory>());
+            add_instance<IProcessRequests>(new FrontController(Container.fetch.an<IFindCommandsThatCanProcessRequests>()))
+            )
+            ;
+            add_instance<GetTheCurrentlyExecutingContext>(() => HttpContext.Current);
+            add_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
         }
+
+        static void add_instance<Contract>(Contract instance)
+        {
+            add_factory<Contract>(() => instance);
+        }
+
+        static void add_factory<Contract>(Func<object> factory)
+        {
+            all_the_factories.Add(typeof(Contract), new SimpleDependencyFactory(factory));
+        }
+
     }
 }

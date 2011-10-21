@@ -82,13 +82,14 @@
     <Compile Include="infrastructure\containers\Container.cs" />
     <Compile Include="infrastructure\containers\ContainerFacade.cs" />
     <Compile Include="infrastructure\containers\ContainerFacadeResolver.cs" />
-    <Compile Include="infrastructure\containers\CreateTheMissingDependencyFactory.cs" />
-    <Compile Include="infrastructure\containers\DependencyCreationException.cs" />
-    <Compile Include="infrastructure\containers\DependencyFactories.cs" />
-    <Compile Include="infrastructure\containers\ICreateASingleDependency.cs" />
+    <Compile Include="infrastructure\containers\simple\CreateTheMissingDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\simple\DependencyCreationException.cs" />
+    <Compile Include="infrastructure\containers\simple\DependencyFactories.cs" />
+    <Compile Include="infrastructure\containers\simple\ICreateASingleDependency.cs" />
     <Compile Include="infrastructure\containers\IFetchDependencies.cs" />
-    <Compile Include="infrastructure\containers\IFindFactoriesForDependencies.cs" />
-    <Compile Include="infrastructure\containers\SimpleDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\simple\IFindFactoriesForDependencies.cs" />
+    <Compile Include="infrastructure\containers\simple\SimpleDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\simple\stubs\StubMissingDependencyFactory.cs" />
     <Compile Include="infrastructure\logging\ICreateLoggers.cs" />
     <Compile Include="infrastructure\logging\ILogInformation.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="models\ViewDepartmentsRequest.cs" />
     <Compile Include="models\ViewProductsRequest.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
+    <Compile Include="tasks\startup\StartTheApplication.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />
     <Compile Include="web\application\catalogbrowsing\SecuredQuery.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="web\infrastructure\Stub.cs" />
     <Compile Include="web\infrastructure\stubs\StubAspxPathRegistry.cs" />
     <Compile Include="web\infrastructure\stubs\StubCommand.cs" />
+    <Compile Include="web\infrastructure\stubs\StubMissingCommand.cs" />
     <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />
     <Compile Include="web\infrastructure\stubs\StubSetOfCommands.cs" />
   </ItemGroup>

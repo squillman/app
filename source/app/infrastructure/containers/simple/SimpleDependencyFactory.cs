@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace app.infrastructure.containers
+namespace app.infrastructure.containers.simple
 {
     public class SimpleDependencyFactory : ICreateASingleDependency
     {
         Func<object> creation_delegate;
 
-        public SimpleDependencyFactory(Func<object> creationDelegate)
+        public SimpleDependencyFactory(Func<object> creation_delegate)
         {
-            creation_delegate = creationDelegate;
+            this.creation_delegate = creation_delegate;
         }
 
         public object create()

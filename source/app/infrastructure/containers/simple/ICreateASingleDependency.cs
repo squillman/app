@@ -1,4 +1,4 @@
-﻿namespace app.infrastructure.containers
+﻿namespace app.infrastructure.containers.simple
 {
     public interface ICreateASingleDependency
     {

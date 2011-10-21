@@ -2,6 +2,7 @@
  using System.Collections.Generic;
  using Machine.Specifications;
  using app.infrastructure.containers;
+ using app.infrastructure.containers.simple;
  using developwithpassion.specifications.rhinomocks;
  using developwithpassion.specifications.extensions;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace app.infrastructure.containers
+namespace app.infrastructure.containers.simple
 {
     public class DependencyFactories : IFindFactoriesForDependencies
     {

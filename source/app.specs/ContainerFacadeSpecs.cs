@@ -1,6 +1,7 @@
 ﻿using System;
 using Machine.Specifications;
 using app.infrastructure.containers;
+using app.infrastructure.containers.simple;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 

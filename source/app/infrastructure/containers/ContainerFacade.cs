@@ -13,14 +13,18 @@ namespace app.infrastructure.containers
 
         public Dependency an<Dependency>()
         {
+            return (Dependency) an(typeof(Dependency));
+        }
+
+        public object an(Type dependency)
+        {
             try
             {
-                var factory = dependency_factories.get_the_factory_that_can_create(typeof(Dependency));
-                return (Dependency) factory.create();
+                return dependency_factories.get_the_factory_that_can_create(dependency).create();
             }
             catch (Exception ex)
             {
-                throw new DependencyCreationException("A dependency could not be created.",ex,typeof(Dependency));
+                throw new DependencyCreationException(ex,dependency);
             }
         }
     }

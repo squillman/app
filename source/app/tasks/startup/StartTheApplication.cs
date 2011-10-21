@@ -50,7 +50,16 @@ namespace app.tasks.startup
         static void configure_the_front_controller_components()
         {
             add_instance<ICreateRequests>(Stub.with<StubRequestFactory>());
-            add_instance<IProcessRequests>(new FrontController(Container.fetch.an<IFindCommandsThatCanProcessRequests>()));
+            add_factory<IProcessRequests>(() =>  new FrontController(Container.fetch.an<IFindCommandsThatCanProcessRequests>()));
+            add_instance<IEnumerable<IProcessOneSpecificTypeOfRequest>>(Stub.with<StubSetOfCommands>());
+            add_factory<IDisplayInformation>(() => new WebFormReportEngine(Container.fetch.an<ICreateTemplateInstances>(),
+                Container.fetch.an<GetTheCurrentlyExecutingContext>()));
+            add_factory<ICreateTemplateInstances>(() => new ASPXTemplateFactory(Container.fetch.an<IFindPathsToTemplates>(),
+                Container.fetch.an<PageFactory>()));
+            add_instance<IFindPathsToTemplates>(Stub.with<StubAspxPathRegistry>());
+            add_factory<IFindCommandsThatCanProcessRequests>(() => new CommandRegistry(Container.fetch.an<IEnumerable<IProcessOneSpecificTypeOfRequest>>(),
+                Stub.with<StubMissingCommand>()));
+            
             add_instance<GetTheCurrentlyExecutingContext>(() => HttpContext.Current);
             add_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
         }

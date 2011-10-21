@@ -1,10 +1,19 @@
-﻿namespace app.infrastructure.containers
+﻿using System;
+
+namespace app.infrastructure.containers
 {
     public class SimpleDependencyFactory : ICreateASingleDependency
     {
+        Func<object> creation_delegate;
+
+        public SimpleDependencyFactory(Func<object> creationDelegate)
+        {
+            creation_delegate = creationDelegate;
+        }
+
         public object create()
         {
-            throw new System.NotImplementedException();
+            return creation_delegate();
         }
     }
 }

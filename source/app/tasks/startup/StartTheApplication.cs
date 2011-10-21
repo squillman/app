@@ -14,7 +14,7 @@ namespace app.tasks.startup
 {
     public class StartTheApplication
     {
-        static IRegisterComponentsIntoTheContainer container_registration;
+        static IRegisterComponentsIntoTheContainer registration;
 
         static IFetchDependencies container_facade;
 
@@ -28,20 +28,20 @@ namespace app.tasks.startup
 
         static void configure_the_user_commands()
         {
-            container_registration.add_factory<ViewTheMainDepartments>();
-            container_registration.add_factory<ViewTheDepartmentsInADepartment>();
-            container_registration.add_factory<ViewTheProductsInADepartment>();
+            registration.register<ViewTheMainDepartments>();
+            registration.register<ViewTheDepartmentsInADepartment>();
+            registration.register<ViewTheProductsInADepartment>();
         }
 
         static void configure_service_layer_components()
         {
-            container_registration.add_factory<IProvideInformationAboutTheStore, StubStoreDirectory>();
+            registration.register<IProvideInformationAboutTheStore, StubStoreDirectory>();
         }
 
         static void configure_the_container()
         {
             container_facade =
-                new ContainerFacade(new DependencyFactories(container_registration,
+                new ContainerFacade(new DependencyFactories(registration,
                                                             Stub.with<StubMissingDependencyFactory>().create));
             ContainerFacadeResolver resolver = () => container_facade;
             Container.facade_resolver = resolver;
@@ -49,16 +49,16 @@ namespace app.tasks.startup
 
         static void configure_the_front_controller_components()
         {
-            container_registration.add_factory<ICreateRequests, StubRequestFactory>();
-            container_registration.add_factory<IProcessRequests, FrontController>();
-            container_registration.add_factory<IEnumerable<IProcessOneSpecificTypeOfRequest>, StubSetOfCommands>();
-            container_registration.add_factory<IDisplayInformation, WebFormReportEngine>();
-            container_registration.add_factory<ICreateTemplateInstances, ASPXTemplateFactory>();
-            container_registration.add_factory<IFindPathsToTemplates, StubAspxPathRegistry>();
-            container_registration.add_factory<IFindCommandsThatCanProcessRequests, CommandRegistry>();
-            container_registration.add_factory<IRepresentACommandThatIsNotYetSupported, StubMissingCommand>();
-            container_registration.add_instance<GetTheCurrentlyExecutingContext>(() => HttpContext.Current);
-            container_registration.add_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
+            registration.register<ICreateRequests, StubRequestFactory>();
+            registration.register<IProcessRequests, FrontController>();
+            registration.register<IEnumerable<IProcessOneSpecificTypeOfRequest>, StubSetOfCommands>();
+            registration.register<IDisplayInformation, WebFormReportEngine>();
+            registration.register<ICreateTemplateInstances, ASPXTemplateFactory>();
+            registration.register<IFindPathsToTemplates, StubAspxPathRegistry>();
+            registration.register<IFindCommandsThatCanProcessRequests, CommandRegistry>();
+            registration.register<IRepresentACommandThatIsNotYetSupported, StubMissingCommand>();
+            registration.register_instance<GetTheCurrentlyExecutingContext>(() => HttpContext.Current);
+            registration.register_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
         }
 
     }

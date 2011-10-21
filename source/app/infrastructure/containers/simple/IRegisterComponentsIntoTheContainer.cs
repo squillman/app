@@ -5,8 +5,8 @@ namespace app.infrastructure.containers.simple
 {
     public interface IRegisterComponentsIntoTheContainer : IDictionary<Type,ICreateASingleDependency>
     {
-        void add_instance<Contract>(Contract instance);
-        void add_factory<Contract, Implementation>() where Implementation : Contract;
-        void add_factory<Contract>();
+        void register_instance<Contract>(Contract instance);
+        void register<Contract, Implementation>() where Implementation : Contract;
+        void register<Contract>();
     }
 }

@@ -29,7 +29,7 @@ namespace app.specs
                 };
 
                 Because b = () =>
-                    sut.add_factory<IAmADependency, TheDependency>();
+                    sut.register<IAmADependency, TheDependency>();
 
                 It should_store_the_created_factory_using_the_correct_key = () =>
                     sut[typeof(IAmADependency)].ShouldEqual(the_factory);
@@ -51,7 +51,7 @@ namespace app.specs
                 };
 
                 Because b = () =>
-                    sut.add_factory<TheDependency>();
+                    sut.register<TheDependency>();
 
                 It should_store_the_created_factory_using_the_correct_key = () =>
                     sut[typeof(TheDependency)].ShouldEqual(the_factory);
@@ -73,7 +73,7 @@ namespace app.specs
                 };
 
                 Because b = () =>
-                    sut.add_instance(the_instance);
+                    sut.register_instance(the_instance);
 
                 It should_store_the_created_factory_using_the_correct_key = () =>
                     sut[typeof(TheDependency)].ShouldEqual(the_factory);

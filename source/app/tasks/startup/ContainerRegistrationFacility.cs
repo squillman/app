@@ -14,20 +14,20 @@ namespace app.tasks.startup
             this.dependency_factories_factory = dependency_factories_factory;
         }
 
-        public void add_instance<Contract>(Contract instance)
+        public void register_instance<Contract>(Contract instance)
         {
             Add(typeof(Contract), dependency_factories_factory.create_for_instance(instance));
         }
 
-        public void add_factory<Contract, Implementation>() where Implementation : Contract
+        public void register<Contract, Implementation>() where Implementation : Contract
         {
             Add(typeof(Contract),
                 dependency_factories_factory.create_for_automatic_wiring<Implementation>());
         }
 
-        public void add_factory<Contract>()
+        public void register<Contract>()
         {
-            add_factory<Contract, Contract>();
+            register<Contract, Contract>();
         }
     }
 }

@@ -23,6 +23,7 @@ namespace app.specs
                 the_connection = fake.an<IDbConnection>();
                 the_command = fake.an<IDbCommand>();
                 the_reader = fake.an<IDataReader>();
+
                 container = depends.on<IFetchDependencies>();
                 depends.on(typeof(OurTypeWithDependencies));
                 constructor_picker = depends.on<IChooseTheConstructorForAType>();

@@ -22,9 +22,8 @@ namespace app.specs
             {
                 Establish c = () =>
                 {
-                    the_dependency = new SomeDependency();
-                    the_factory = fake.an<ICreateASingleDependency>();
-                    the_factory.setup(x => x.create()).Return(the_dependency);
+                    the_factory_registry = fake.an<IFindFactoriesForDependencies>();
+                    the_factory_registry.setup(x => x.get_the_factory_that_can_create(typeof(SomeDependency))).Return(the_factory);
                 };
 
                 Because b = () =>
@@ -33,10 +32,9 @@ namespace app.specs
                 It should_return_the_factory_for_the_requested_dependency = () =>
                     result.ShouldEqual(the_factory);
 
-
                 static ICreateASingleDependency result;
-                static ICreateASingleDependency the_factory;
-                static SomeDependency the_dependency;
+                static IFindFactoriesForDependencies the_factory_registry;
+                private static ICreateASingleDependency the_factory;
             }
                 
         }

@@ -40,9 +40,12 @@ namespace app.tasks.startup
 
         static void configure_the_container()
         {
-            container_facade =
-                new ContainerFacade(new DependencyFactories(registration,
-                                                            Stub.with<StubMissingDependencyFactory>().create));
+            var lazy_container = new LazyContainer();
+
+            registration = new ContainerRegistrationFacility(new DependencyFactoriesFactory(lazy_container, new GreediestContructorPicker()));
+            container_facade = new ContainerFacade(new DependencyFactories(registration, Stub.with<StubMissingDependencyFactory>().create));
+            lazy_container.container = container_facade;
+
             ContainerFacadeResolver resolver = () => container_facade;
             Container.facade_resolver = resolver;
         }
@@ -50,8 +53,9 @@ namespace app.tasks.startup
         static void configure_the_front_controller_components()
         {
             registration.register<ICreateRequests, StubRequestFactory>();
-            registration.register<IProcessRequests, FrontController>();
+            registration.register<IProcessRequests, FrontController>().as_singleton();
             registration.register<IEnumerable<IProcessOneSpecificTypeOfRequest>, StubSetOfCommands>();
+            registration.register<IDisplayInformation, WebFormReportEngine>();
             registration.register<IDisplayInformation, WebFormReportEngine>();
             registration.register<ICreateTemplateInstances, ASPXTemplateFactory>();
             registration.register<IFindPathsToTemplates, StubAspxPathRegistry>();

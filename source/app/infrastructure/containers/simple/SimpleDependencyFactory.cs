@@ -4,7 +4,7 @@ namespace app.infrastructure.containers.simple
 {
     public class SimpleDependencyFactory : ICreateASingleDependency
     {
-        Func<object> creation_delegate;
+        public Func<object> creation_delegate;
 
         public SimpleDependencyFactory(Func<object> creation_delegate)
         {

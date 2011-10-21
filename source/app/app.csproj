@@ -93,8 +93,9 @@
     <Compile Include="infrastructure\containers\simple\ICreateDependencyFactories.cs" />
     <Compile Include="infrastructure\containers\simple\IFindFactoriesForDependencies.cs" />
     <Compile Include="infrastructure\containers\simple\IRegisterComponentsIntoTheContainer.cs" />
+    <Compile Include="infrastructure\containers\simple\LazyContainer.cs" />
     <Compile Include="infrastructure\containers\simple\SimpleDependencyFactory.cs" />
-    <Compile Include="infrastructure\containers\simple\SingleDependencyFactory.cs" />
+    <Compile Include="infrastructure\containers\simple\DependencyFactoriesFactory.cs" />
     <Compile Include="infrastructure\containers\simple\stubs\StubMissingDependencyFactory.cs" />
     <Compile Include="infrastructure\logging\ICreateLoggers.cs" />
     <Compile Include="infrastructure\logging\ILogInformation.cs" />

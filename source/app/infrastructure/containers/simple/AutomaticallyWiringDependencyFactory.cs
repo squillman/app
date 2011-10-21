@@ -5,9 +5,9 @@ namespace app.infrastructure.containers.simple
 {
     public class AutomaticallyWiringDependencyFactory : ICreateASingleDependency
     {
-        IFetchDependencies container;
-        Type dependency_type;
-        IChooseTheConstructorForAType constructor_picker;
+        public IFetchDependencies container;
+        public Type dependency_type;
+        public IChooseTheConstructorForAType constructor_picker;
 
         public AutomaticallyWiringDependencyFactory(IFetchDependencies container, Type dependencyType, IChooseTheConstructorForAType constructor_picker)
         {

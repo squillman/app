@@ -57,6 +57,7 @@ namespace app.tasks.startup
             add_factory<ICreateTemplateInstances,ASPXTemplateFactory>();
             add_factory<IFindPathsToTemplates,StubAspxPathRegistry>();
             add_factory<IFindCommandsThatCanProcessRequests,CommandRegistry>();
+            add_factory<IRepresentACommandThatIsNotYetSupported,StubMissingCommand>();
             add_instance<GetTheCurrentlyExecutingContext>(() => HttpContext.Current);
             add_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
         }
@@ -66,7 +67,7 @@ namespace app.tasks.startup
             all_the_factories.Add(typeof(Contract),new SimpleDependencyFactory(() => instance));
         }
 
-        static void add_factory<Contract,Implementation>()
+        static void add_factory<Contract,Implementation>() where Implementation:Contract
         {
             all_the_factories.Add(typeof(Contract), new AutomaticallyWiringDependencyFactory(container_facade,
                                                                                              typeof(Implementation),

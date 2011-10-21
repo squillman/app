@@ -1,6 +1,6 @@
 ﻿namespace app.web.infrastructure.stubs
 {
-    public class StubMissingCommand:IProcessOneSpecificTypeOfRequest
+    public class StubMissingCommand:IRepresentACommandThatIsNotYetSupported
     {
         public void process(IContainRequestDetails request)
         {

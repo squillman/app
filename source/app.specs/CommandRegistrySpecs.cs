@@ -55,7 +55,7 @@ namespace app.specs
                 {
                     all_the_commands = Enumerable.Range(1,100).Select(x => fake.an<IProcessOneSpecificTypeOfRequest>()).ToList();
 
-                    the_special_case = depends.on<IProcessOneSpecificTypeOfRequest>();
+                    the_special_case = depends.on<IRepresentACommandThatIsNotYetSupported>();
                     depends.on<IEnumerable<IProcessOneSpecificTypeOfRequest>>(all_the_commands);
 
                     request = fake.an<IContainRequestDetails>();
@@ -72,7 +72,7 @@ namespace app.specs
                 static IProcessOneSpecificTypeOfRequest result;
                 static IContainRequestDetails request;
                 static IList<IProcessOneSpecificTypeOfRequest> all_the_commands;
-                static IProcessOneSpecificTypeOfRequest the_special_case;
+                static IRepresentACommandThatIsNotYetSupported the_special_case;
             }
         }
     }

@@ -131,6 +131,7 @@
     <Compile Include="web\infrastructure\IFindCommandsThatCanProcessRequests.cs" />
     <Compile Include="web\infrastructure\IProcessOneSpecificTypeOfRequest.cs" />
     <Compile Include="web\infrastructure\IProcessRequests.cs" />
+    <Compile Include="web\infrastructure\IRepresentACommandThatIsNotYetSupported.cs" />
     <Compile Include="web\infrastructure\RequestCommand.cs" />
     <Compile Include="web\infrastructure\RequestCriteria.cs" />
     <Compile Include="web\infrastructure\Stub.cs" />

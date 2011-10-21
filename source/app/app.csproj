@@ -106,7 +106,13 @@
     <Compile Include="models\ViewProductsRequest.cs" />
     <Compile Include="tasks\IProvideInformationAboutTheStore.cs" />
     <Compile Include="tasks\startup\ContainerRegistrationFacility.cs" />
+    <Compile Include="tasks\startup\pipeline\ConfiguringTheApplicationCommands.cs" />
+    <Compile Include="tasks\startup\pipeline\ConfiguringTheContainer.cs" />
+    <Compile Include="tasks\startup\pipeline\ConfiguringTheFrontController.cs" />
+    <Compile Include="tasks\startup\pipeline\ConfiguringTheServiceLayer.cs" />
+    <Compile Include="tasks\startup\pipeline\IPlayAPartInApplicationStartUp.cs" />
     <Compile Include="tasks\startup\SingletonCreator.cs" />
+    <Compile Include="tasks\startup\Start.cs" />
     <Compile Include="tasks\startup\StartTheApplication.cs" />
     <Compile Include="tasks\stubs\StubStoreDirectory.cs" />
     <Compile Include="web\application\catalogbrowsing\IFetchA.cs" />

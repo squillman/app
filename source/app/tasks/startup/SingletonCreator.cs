@@ -1,16 +1,15 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using app.infrastructure.containers.simple;
-using app.tasks.startup;
 
 public class SingletonCreator : Dictionary<Type, ICreateASingleDependency>,
-                                                 IRegisterComponentsIntoTheContainer
+                                IRegisterComponentsIntoTheContainer
 {
-    private ContainerRegistrationFacility original;
-    private ICreateDependencyFactories dependency_factories_factory;
+    IRegisterComponentsIntoTheContainer original;
+    ICreateDependencyFactories dependency_factories_factory;
 
-    public SingletonCreator(ICreateDependencyFactories dependency_factories_factory,ContainerRegistrationFacility original)
+    public SingletonCreator(ICreateDependencyFactories dependency_factories_factory,
+                            IRegisterComponentsIntoTheContainer original)
     {
         this.original = original;
         this.dependency_factories_factory = dependency_factories_factory;
@@ -23,7 +22,7 @@ public class SingletonCreator : Dictionary<Type, ICreateASingleDependency>,
 
     public void register<Contract, Implementation>() where Implementation : Contract
     {
-        original.register<Contract,Implementation>();
+        original.register<Contract, Implementation>();
     }
 
     public void register<Contract>()

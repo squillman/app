@@ -130,6 +130,7 @@
     <Compile Include="SecuredQuerySpecs.cs" />
     <Compile Include="SimpleDependencyFactorySpecs.cs" />
     <Compile Include="DependencyFactoriesFactorySpecs.cs" />
+    <Compile Include="StartSpecs.cs" />
     <Compile Include="StartTheApplicationSpecs.cs" />
     <Compile Include="StubSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />

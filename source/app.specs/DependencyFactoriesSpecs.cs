@@ -22,7 +22,9 @@ namespace app.specs
             {
                 Establish c = () =>
                 {
-                    the_factory = fake.an<ICreateASingleDependency>();    
+                    the_dependency = new SomeDependency();
+                    the_factory = fake.an<ICreateASingleDependency>();
+                    the_factory.setup(x => x.create()).Return(the_dependency);
                 };
 
                 Because b = () =>
@@ -34,6 +36,7 @@ namespace app.specs
 
                 static ICreateASingleDependency result;
                 static ICreateASingleDependency the_factory;
+                static SomeDependency the_dependency;
             }
                 
         }

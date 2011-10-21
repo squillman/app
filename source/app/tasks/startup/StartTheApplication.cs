@@ -50,9 +50,7 @@ namespace app.tasks.startup
         static void configure_the_front_controller_components()
         {
             add_instance<ICreateRequests>(Stub.with<StubRequestFactory>());
-            add_instance<IProcessRequests>(new FrontController(Container.fetch.an<IFindCommandsThatCanProcessRequests>()))
-            )
-            ;
+            add_instance<IProcessRequests>(new FrontController(Container.fetch.an<IFindCommandsThatCanProcessRequests>()));
             add_instance<GetTheCurrentlyExecutingContext>(() => HttpContext.Current);
             add_instance<PageFactory>(BuildManager.CreateInstanceFromVirtualPath);
         }

@@ -1,4 +1,5 @@
-﻿using Machine.Specifications;
+﻿using System;
+using Machine.Specifications;
 using app.infrastructure.containers;
 using app.infrastructure.logging;
 using developwithpassion.specifications.rhinomocks;
@@ -18,6 +19,7 @@ namespace app.specs
         {
             Establish c = () =>
             {
+
                 the_logger = fake.an<ILogInformation>();
                 log_factory = fake.an<ICreateLoggers>();
 

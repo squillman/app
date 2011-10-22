@@ -28,5 +28,10 @@ namespace app.tasks.startup
         {
             return builder_factory(typeof(StartupElement));
         }
+
+        public static void by_running_all_commands_in(string path_to_startup_file)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

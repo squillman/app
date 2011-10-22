@@ -4,7 +4,7 @@
     {
         public static void run()
         {
-            Start.by_running_all_commands_in("startup_order.txt");
+            Start.by_running_pipeline_sequence_defined_in("startup_order.txt");
         }
     }
 }

@@ -29,7 +29,7 @@ namespace app.tasks.startup
             return builder_factory(typeof(StartupElement));
         }
 
-        public static void by_running_all_commands_in(string path_to_startup_file)
+        public static void by_running_pipeline_sequence_defined_in(string path_to_startup_file)
         {
             throw new NotImplementedException();
         }

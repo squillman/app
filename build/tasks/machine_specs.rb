@@ -5,7 +5,7 @@ namespace :specs do
   end
 
   desc 'run the specs for the project'
-  task :run  => [:init,:expand_all_template_files,'build:rebuild'] do
+  task :run  => [:init,:expand_all_template_files,:copy_config_files,'build:rebuild'] do
     configatron.all_references.each do|file|
       FileUtils.cp(file,configatron.artifacts_dir)
     end
